@@ -16,7 +16,7 @@ class PostController extends Controller
         return view('posts.index',compact('posts'))
                 ->with('i', (request()->input('page',1) -1) * 5);
     }
-
+ 
     /**
      * Show the form for creating a new resource.
      */
@@ -62,15 +62,22 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $posts = Post::latest()->paginate(5);
         return view('posts.show',compact('post'));
     }
     public function showsignl(Post $post)
     {
-        return view('posts.commentaire',['post'=>$post]
-        
-    );
+        $comments = $post->commentaires;
+        return view('posts.commentaire', [
+            'post' => $post,
+            'comments' => $comments,
+        ]);
     }
-
+    public function getonepost($id)
+    {
+        $post = Post::find($id);
+        return view('posts.commentaire', ['post' => $post]);
+    }
     /**
      * Show the form for editing the specified resource.
      */
@@ -79,6 +86,7 @@ class PostController extends Controller
         return view('posts.edit',compact('post'));
         
     }
+    
 
     /**
      * Update the specified resource in storage.

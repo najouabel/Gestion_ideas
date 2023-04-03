@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Commentaire;
+use App\Models\LikeCommentaire;
+use App\Models\User;
+
 
 
 class CommentaireController extends Controller
@@ -46,6 +49,10 @@ class CommentaireController extends Controller
     /**
      * Display the specified resource.
      */
+    
+   
+    
+   
     public function show(string $id)
     {
         // return view('posts.commentaire');

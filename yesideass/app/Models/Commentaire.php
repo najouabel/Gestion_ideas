@@ -12,7 +12,10 @@ class Commentaire extends Model
     use HasFactory;
     protected $fillable = [ 'body','user_id','post_id' ];
 
-
+    public function likedBy(User $user)
+    {
+        return $this->likes->contains('user_id', $user->id);
+    }
     public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class);
@@ -23,6 +26,9 @@ class Commentaire extends Model
     }
     public function Likes(): HasMany
     {
-        return $this->hasMany(Like::class);
+        return $this->hasMany(LikeCommentaire::class);
     }
+   
+    
+    
 }

@@ -42,7 +42,7 @@
                             <div class="flex w-full mt-1">
                                
                                 <div class="text-gray-400 font-thin text-xs">
-                                    • {{$item->updated_at}} 
+                                    • {{$item->updated_at->diffForHumans() }} 
                                 </div>
                             </div>
                         </div>
@@ -60,13 +60,13 @@
                             </div>
                         
                     </div> --}}
-                    <div class="flex w-full ">
+                    {{-- <div class="flex w-full ">
                         <div class="mt-3 mx-5 flex flex-row text-xs">
                             <div class="flex text-gray-700 font-normal rounded-md mb-2 mr-4 items-center">Likes:<div class="ml-1 text-gray-400 text-ms"> 30</div></div>
                             <div class="flex text-gray-700 font-normal rounded-md mb-2 mr-4 items-center">Comments: <div class="ml-1 text-gray-400 text-ms"> 60k</div></div>
                         </div>
                         
-                    </div>
+                    </div> --}}
                     
                     @auth
                     <div class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
